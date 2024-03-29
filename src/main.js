@@ -59,7 +59,7 @@ function checkBtnStatus() {
 
 function myScroll() {
   scrollBy({
-    top: 500,
+    top: 620,
     behavior: 'smooth',
   });
 }
@@ -71,10 +71,10 @@ async function onFormSubmit(e) {
   e.preventDefault();
   refs.gallery.innerHTML = '';
   query = e.target.elements.inputname.value.trim();
+  showLoader();
   currentPage = 1;
   if (query !== '') {
     try {
-      showLoader();
       const data = await getImages(query, currentPage);
       maxPage = Math.ceil(data.totalHits / pageSize);
       renderGallery(data.hits);
@@ -100,8 +100,8 @@ async function onFormSubmit(e) {
 
 async function onLoadMoreClick() {
   currentPage += 1;
+  showLoader();
   try {
-    showLoader();
     const data = await getImages(query, currentPage);
     renderGallery(data.hits);
   } catch {
@@ -111,7 +111,7 @@ async function onLoadMoreClick() {
       message: 'Error',
     });
   }
-  myScroll();
   checkBtnStatus();
   closeLoader();
+  myScroll();
 }
