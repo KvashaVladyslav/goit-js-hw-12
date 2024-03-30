@@ -101,6 +101,7 @@ async function onFormSubmit(e) {
 
 async function onLoadMoreClick() {
   currentPage += 1;
+  closeLoadMoreBtn();
   showLoader();
   try {
     const data = await getImages(query, currentPage);
