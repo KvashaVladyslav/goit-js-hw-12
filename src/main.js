@@ -58,8 +58,10 @@ function checkBtnStatus() {
 }
 
 function myScroll() {
+  const height = refs.gallery.firstChild.getBoundingClientRect().height;
+
   scrollBy({
-    top: 620,
+    top: height * 2,
     behavior: 'smooth',
   });
 }
