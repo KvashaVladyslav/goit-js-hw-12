@@ -16,7 +16,6 @@ export const refs = {
   formEl: document.querySelector('.form'),
   searchBtn: document.querySelector('.search-btn'),
   loadMoreBtn: document.querySelector('.load-more-btn'),
-  loaderEl: document.querySelector('.loader'),
   gallery: document.querySelector('.gallery'),
   loaderBox: document.querySelector('.loader'),
 };
